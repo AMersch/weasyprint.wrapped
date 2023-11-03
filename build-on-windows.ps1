@@ -27,7 +27,7 @@ Remove-Item $workingDir/gtk3.exe -Recurse -Force | Out-Null
 Remove-Item $workingDir/gtk3/install -Recurse -Force | Out-Null
 
 Write-Host "*** Downloading python (https://github.com/indygreg/python-build-standalone)"
-Invoke-WebRequest -Uri "https://github.com/indygreg/python-build-standalone/releases/download/20220502/cpython-3.10.4+20220502-x86_64-pc-windows-msvc-shared-install_only.tar.gz" -OutFile "$workingDir/python.tar.gz"
+Invoke-WebRequest -Uri "https://github.com/indygreg/python-build-standalone/releases/download/20231002/cpython-3.10.13+20231002-x86_64-pc-windows-msvc-shared-install_only.tar.gz" -OutFile "$workingDir/python.tar.gz"
 Invoke-Expression "tar -xvzf $workingDir/python.tar.gz -C $workingDir"
 Remove-Item "$workingDir/python.tar.gz" -Recurse -Force | Out-Null
 
@@ -40,5 +40,5 @@ Invoke-Expression ".\python.exe -m weasyprint --info"
 New-Item -Path "$workingDir/version-$version"
 Set-Location  "../../"
 
-Write-Host "*** Create archive $assets/standalone-windows-64.zip"
-Compress-Archive -Path "$workingDir/*"  -DestinationPath "$assets/standalone-windows-64.zip" -CompressionLevel "Optimal" -Force
+Write-Host "*** Create archive $assets/standalone-windows-x64.zip"
+Compress-Archive -Path "$workingDir/*"  -DestinationPath "$assets/standalone-windows-x64.zip" -CompressionLevel "Optimal" -Force

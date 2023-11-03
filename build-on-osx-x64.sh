@@ -1,4 +1,4 @@
-workingDir="./standalone-linux-64";
+workingDir="./standalone-osx-x64";
 assets="./assets";
 version=weasyprint==59
 
@@ -19,7 +19,7 @@ echo "*** Creating $assets"
 mkdir $assets
 
 echo "*** Downloading python (https://github.com/indygreg/python-build-standalone)"
-wget -O $workingDir/python.tar.gz 'https://github.com/indygreg/python-build-standalone/releases/download/20231002/cpython-3.10.13+20231002-x86_64-unknown-linux-gnu-install_only.tar.gz'
+wget -O $workingDir/python.tar.gz 'https://github.com/indygreg/python-build-standalone/releases/download/20231002/cpython-3.10.13+20231002-x86_64-apple-darwin-install_only.tar.gz'
 tar -xvzf $workingDir/python.tar.gz -C $workingDir
 rm $workingDir/python.tar.gz
 
@@ -33,5 +33,5 @@ touch "version-$version"
 echo "cd python/bin/
 ./python3.10 -m weasyprint - - --encoding utf8" >> print.sh
 
-echo "*** Create archive $assets/standalone-linux-x64.zip"
-zip -r "../$assets/standalone-linux-x64.zip" .
+echo "*** Create archive $assets/standalone-osx-x64.zip"
+zip -r "../$assets/standalone-osx-x64.zip" .
